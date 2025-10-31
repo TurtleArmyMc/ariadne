@@ -455,7 +455,7 @@ pub struct Config {
     tab_width: usize,
     char_set: CharSet,
     index_type: IndexType,
-    show_full: bool,
+    show_full_span: bool,
 }
 
 impl Config {
@@ -525,11 +525,11 @@ impl Config {
         self
     }
 
-    /// Should this report not collapse multiline labels?
+    /// Whether all lines covered by a multi-line span are shown, instead of just the first and last lines.
     ///
     /// If unspecified, this defaults to 'false'
-    pub const fn with_show_full(mut self, show_full: bool) -> Self {
-        self.show_full = show_full;
+    pub const fn with_show_full_span(mut self, show_full_span: bool) -> Self {
+        self.show_full_span = show_full_span;
         self
     }
 
@@ -583,7 +583,7 @@ impl Config {
             tab_width: 4,
             char_set: CharSet::Unicode,
             index_type: IndexType::Char,
-            show_full: false,
+            show_full_span: false,
         }
     }
 }
