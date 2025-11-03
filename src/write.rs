@@ -1336,10 +1336,11 @@ mod tests {
            | |
            | `------------ illegal comparison
         ---'
-        ");}
+        ");
+    }
 
-        #[test]
-        fn multiline_label_longer_than_max_span_line_count(){
+    #[test]
+    fn multiline_label_longer_than_max_span_line_count() {
         let source = "pear\napple\n==\norange\nbanana";
         let msg = remove_trailing(
             Report::build(ReportKind::Error, 0..0)
